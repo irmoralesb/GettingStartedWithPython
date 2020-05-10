@@ -41,3 +41,54 @@ if accounts is None: #Checks for null pointer!!!
 else:
     print("Accounts found: Would list them here?")
 ```
+
+## Multiple Test Against a Single Variable
+
+```python
+# Regular way
+if m == Moves.North or m == Moves.South or m == Moves.West or m == Moves.East:
+  print("Blah...")
+
+# Pythonic way
+
+if m in { Moves.North, Moves.South, Moves.West, Moves.East }: 
+    print("Blah...")
+```
+
+## Chose a Random Item
+```python
+letters = {"asdfghjklzxcvbnmqwertyuiop1234567890"}
+item = random.choice(letters)
+```
+
+## String Formatting
+
+```python
+# Old format
+print("Hi I'm %s and I'm %d years old." % (name, age))
+
+# Better approach
+print("Hi I'm {} and I'm {} years old.".format(name, age))
+
+# with dictionary
+data = {'data': "Saturday", 'office':'Home Office', 'other':'UNUSED'}
+print("On {day} I was working in my office {office}!".format(**data))
+
+# Python 3.6 or above
+print(f"On {day} I was working in my {office}!") # those are variables in the scope
+```
+
+# Send an Exit Code
+If it is called from other consumer scripts, the exit numbers are recommended.
+
+```python
+import sys
+... # Code
+
+    print("Format Cancelled!")
+    sys.exit(1)
+... # Code
+    print("Completed Successfully!")
+    sys.exit(0) 
+```
+**Always use 0 for success**
